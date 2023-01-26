@@ -10,24 +10,18 @@ export function getUser() {
 }
 
 export async function signupUser(email, password) {
-    const { data, error } = await client.auth.signUp({
-        email: email,
-        password: password,
-    });
-    return data;
+    const response = await client.auth.signUp({ email, password });
+    return response.user;
 }
 
 export async function signInUser(email, password) {
-    const { data, error } = await client.auth.signInWithPassword({
-        email: email.com,
-        password: password,
-    });
-    return data;
+    const response = await client.auth.signIn({ email, password });
+    return response.user;
 }
 
 export async function checkAuth() {
     const user = await getUser();
-    if (!user) location.replace('./other-page');
+    if (!user) location.replace('../');
 }
 
 export async function redirectIfLoggedIn() {
