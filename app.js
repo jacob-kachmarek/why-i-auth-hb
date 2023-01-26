@@ -22,7 +22,7 @@ signUpForm.addEventListener('submit', async (e) => {
 
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const user = await signInUser(signInEmail, signInPassword);
+    const user = await signInUser(signInEmail.value, signInPassword.value);
     if (user) {
         redirectIfLoggedIn();
     } else {
